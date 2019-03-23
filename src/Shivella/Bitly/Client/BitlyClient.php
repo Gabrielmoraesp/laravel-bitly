@@ -45,8 +45,14 @@ class BitlyClient
      *
      * @return string
      */
-    public function getUrl($url)
+    public function getUrl($url, $token = null)
     {
+	    /*
+	    * @ CASE KEEP MORE OF 1 COMPANY
+	    * ~ NOT NECESSERY SET THE TOKEN IN .ENV
+	    */
+	    $this->token = $this->token ?? $token; 
+	    
         if ($this->token === null) {
             throw new AccessTokenMissingException('Access token is not set');
         }
